@@ -1,20 +1,64 @@
 homebridge-script2
 ==============
 
-Execute custom scripts via homekit apps.
+Custom Script2 fork - for Philips Air Purifier specifically
+Registers Air purifer in homekit via homebridge
+Allows switch on and switch off ONLY and is able to detect state of air purifier
 
-Core of the code written by [@xxcombat](https://github.com/xxcombat/). Great plugin that has served me well.
+
+Core of the code written by [@xxcombat](https://github.com/xxcombat/). 
 Original plugin [homebridge-script](https://github.com/xxcombat/homebridge-script).
+Thanks to [@ybizeul](https://github.com/ybizeul/) for the code snipet that allows for state.sh to execute. 
+Thanks to .[pponce] (https://github.com/pponce/homebridge-script2) for putting this switch2 code together
+Thanks to .[rgerganov] (https://github.com/rgerganov/py-air-control) for working out how to communicate with Philips Air purifier 
 
-Because it appears that the original [homebridge-script](https://github.com/xxcombat/homebridge-script) plugin has stopped being maintained and supported and PR's are also not being accepted. I've updated it to allow for executing a state script or work by checking for the existance of a file. Thanks to [@ybizeul](https://github.com/ybizeul/) for the code snipet that allows for state.sh to execute. This plugin also works with the latest file-exists that broke the original plugin.
-While this fork depends on file-exists there is no need to install it seperately for this fork, as i've included it as a dependency.
+Personally im using a windows 10 machine to run homebridge and the User, used to login is called "Home"
 
 
 ## Installation
 (Requires node >=6.0.0)
 
-1. Install homebridge using: `npm install -g homebridge`
+1. Install homebridge using: `npm install -g homebridge` or https://github.com/jvmahon/homebridge-homeseer/wiki/Windows-10-Installation
 2. Install this plugin using: `npm install -g homebridge-script2`
+3. Install the following code - https://github.com/rgerganov/py-air-control
+3a. Install Python 3.4 or above
+3b. Install the libary `pip3 install py-air-control`
+4. Create a Scripts folder in your homebridge directory
+5. Add the accessory portion from the config.json into your homebridge config.json
+5a. Amend the config.json to change "Home" to your user account
+5b. Change the name from "Fan" to whatever you want if desired
+6. Find out the IP address of your philips air purifier - Check your router and see what address it has been given / give it a static IP /  DHCP reservation to ensure it doesnt change.
+7. Copy the on.sh / off.sh / state.sh and air.sh to your scripts directory
+8. Amend on.sh / off.sh and air.sh - with the IP address of your purifier
+9. Amend state.sh to change "Home" to your user account
+10. Restart homebridge
+11. In the apple home app, change the Type from 'switch' to 'fan'
+
+
+TroubleShooting
+
+If using windows - 
+make sure you can run the scipts from command prompt
+
+test purifier connectivity - airctrl X.X.X.X (where X is your IP address of the purifier) - this should return the state of your purifier
+
+test power on - airctrl X.X.X.X --pwr 1
+test power off - airctrl X.X.X.X --pwr 0
+
+with the power on - test the state - airctrl X.X.X.X | grep "Power: ON"
+
+Test you can run shell scripts
+If windows - ensure your PATHs are correct for python and node
+
+
+
+
+
+
+
+Below are the orginal notes related to Script2 standard installation / use
+----
+
 3. Update your configuration file. See examples below that show the plugin working by using filestate for current state check as well as an example using state.sh script for current state check.
 4. Make sure scripts have been made executable (chmod +x scriptname.sh) and also accessible by the homebridge user. 
 
