@@ -2,7 +2,9 @@ homebridge-script2
 ==============
 
 Custom Script2 fork - for Philips Air Purifier specifically
+
 Registers Air purifer in homekit via homebridge
+
 Allows switch on and switch off ONLY and is able to detect state of air purifier
 
 
