@@ -1,3 +1,3 @@
 echo "OFF"
-rm ~/script.flag
-
+airctrl 192.168.100.34 --pwr 0
+#rm ~/script.flag
