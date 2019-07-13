@@ -14,9 +14,9 @@ Original plugin [homebridge-script](https://github.com/xxcombat/homebridge-scrip
 
 Thanks to [@ybizeul](https://github.com/ybizeul/) for the code snipet that allows for state.sh to execute
 
-Thanks to .[@pponce] (https://github.com/pponce/homebridge-script2) for putting this switch2 code together
+Thanks to [@pponce](https://github.com/pponce/homebridge-script2) for putting this switch2 code together
 
-Thanks to .[@rgerganov] (https://github.com/rgerganov/py-air-control) for working out how to communicate with Philips Air purifier 
+Thanks to [@rgerganov](https://github.com/rgerganov/py-air-control) for working out how to communicate with Philips Air purifier 
 
 
 Personally im using a windows 10 machine to run homebridge and the User, used to login is called "Home"
