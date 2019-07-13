@@ -1,0 +1,17 @@
+{
+    "bridge": {
+        "name": "Homebridge",
+        "username": "CC:22:3D:E3:CE:30",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+    "accessories": [
+        {
+            "accessory": "Script2",
+            "name": "Fan",
+            "on": "/Users/Home/.homebridge/Scripts/on.sh",
+            "off": "/Users/Home/.homebridge/Scripts/off.sh",
+            "state": "/Users/Home/.homebridge/Scripts/state.sh",
+            "on_value": "[pwr]   Power: ON"
+        }
+    ],
